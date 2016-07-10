@@ -1,9 +1,163 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Conocimiento Estratégico</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8" />
+  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  	<script type='text/javascript'>
+	
+//<![CDATA[
+// Ojos que siguen al cursor
+// Script original de Oopstudios.com
+// Adaptado por ciudadblogger.com
+
+EYES = {};
+EYES.stack = [];
+//
+EYES.follow = function (eye) {
+var el1 = document.getElementById (eye);
+var el2 = el1.getElementsByTagName ("IMG");
+el2 = el2[0];
+el2.centre = (el1.offsetWidth - el2.offsetWidth) / 2;
+el2.style.margin = el2.centre + "px 0 0 " + el2.centre + "px";
+el1.maxDist = 6 * el1.offsetWidth;
+EYES.stack.push ([el1, el2]);
+};
+EYES.mousemove = function (e) {
+if (!EYES.stack.length) {
+return;
+}
+//
+var mouseX = mouseY = 0;
+if (!e) var e = window.event;
+if (e.pageX || e.pageY) {
+mouseX = e.pageX;
+mouseY = e.pageY;
+} else if (e.clientX || e.clientY) {
+mouseX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+mouseY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+}
+//
+
+for (var e=0, l=EYES.stack.length; e<l; e++) {
+var el = EYES.stack[e];
+var elX = elY = 0;
+if (el[0].offsetParent) {
+obj = el[0];
+do {
+elX += obj.offsetLeft;
+elY += obj.offsetTop;
+} while (obj = obj.offsetParent);
+}
+el[0].centreX = elX + Math.round (el[0].offsetWidth / 2);
+el[0].centreY = elY + Math.round (el[0].offsetHeight / 2);
+var difX = mouseX - el[0].centreX;
+var difY = mouseY - el[0].centreY;
+var dTan = Math.atan2 (difX, difY);
+var dist = Math.sqrt ((difX * difX) + (difY * difY));
+dist = Math.sin ((dist > el[0].maxDist ? 1 : dist / el[0].maxDist));
+var newX = el[1].centre + Math.round (Math.sin (dTan) * el[1].centre * dist);
+var newY = el[1].centre + Math.round (Math.cos (dTan) * el[1].centre * dist);
+el[1].style.margin = newY + "px 0 0 " + newX + "px";
+}
+};
+
+if (window.attachEvent) document.attachEvent ("onmousemove", EYES.mousemove);
+else document.addEventListener ("mousemove", EYES.mousemove, false);
+//]]>
+</script>
+
+
+<div id="ojos"  style="position:relative; height:145px; margin-bottom:30px;">
+<div id="Ojo1" style="width: 132px; height: 143px; background: url(http://lh6.googleusercontent.com/-G1SdIK4EQAM/Tq9KUlmQhWI/AAAAAAAAB1k/TYW2FbzqSU8/s143/ojo1.png) center center no-repeat; position:absolute; left: 800px; top: 20px;">
+<img src="http://lh4.googleusercontent.com/-naCDuX03WpQ/Tq9KeZErQJI/AAAAAAAAB1w/meYDW9Y51M8/s34/pupila.png" width="30" height="30" /></div>
+<div id="Ojo2" style="width: 132px; height: 143px; background: url(http://lh4.googleusercontent.com/-DMZBDYo4Rn0/Tq9KUhX2nPI/AAAAAAAAB1g/aVv1zZO9HQU/s143/ojo2.png) center center no-repeat; position:absolute; left: 908px; top: 20px;">
+<img src="http://lh4.googleusercontent.com/-naCDuX03WpQ/Tq9KeZErQJI/AAAAAAAAB1w/meYDW9Y51M8/s34/pupila.png" width="30" height="30" /></div>
+</div>
+
+
+<script type="text/javascript">
+EYES.follow ('Ojo1');
+EYES.follow ('Ojo2');
+</script>
+		
+	<link rel="stylesheet" type="text/css" href="CSS.css">
 </head>
 <body>
+	<header>
+	<!--<audio controls>
+		<source src="Take.mp3" type="audio/mp3">
+		Your browser does not support the audio element.
+	</audio>-->
+		
+	</header>
 
+<nav align="center">
+	<button class="button button1 play1"><span><strong>Verde</strong> </span></button>
+	<button class="button button2 play2"><span><strong>Azul</strong> </span></button>
+	<button class="button button3 play3"><span><strong>Rojo</strong> </span></button>
+	<button class="button button4 play4"><span><strong>Gris</strong> </span></button>
+	<button class="button button5 play5"><span><strong>Negro</strong> </span></button>
+	<button class="button button6 play6"><span><strong>Naranja</strong> </span></button>
+	<button class="button button7 play7"><span><strong>Rosa</strong> </span></button>
+	<button class="button button8 play8"><span><strong>Amarillo</strong> </span></button>
+	<button class="button button20 play20"><span><strong>Blanco</strong> </span></button>
+</nav>
+
+<section>
+
+<div class="row">
+<div class="col-sm-10">
+
+<ul >
+	<li><button class="button button9 play9"><span>0 </span></button></li>
+	<li><button class="button button10 play10"><span>1 </span></button></li>
+	<li><button class="button button11 play11"><span>2 </span></button></li>
+	<li><button class="button button12 play12"><span>3 </span></button></li>
+	<li><button class="button button13 play13"><span>4 </span></button></li>
+	<li><button class="button button14 play14"><span>5 </span></button></li>
+	<li><button class="button button15 play15"><span>6 </span></button></li>
+	<li><button class="button button16 play16"><span>7 </span></button></li>
+	<li><button class="button button17 play17"><span>8 </span></button></li>
+	<li><button class="button button18 play18"><span>9 </span></button></li>
+	<li><button class="button button19 play19"><span>10 </span></button></li>
+	
+</ul>
+</div>
+
+
+<div class="row">
+<div class="col-sm-2">
+<ul >
+	<li><button class="button button30 play30"><span>Vocales </span></button></li>
+	<br>
+	<li><button class="button button31 play31"><span>A - a </span></button></li>
+	<br>
+	<li><button class="button button32 play32"><span>E - e </span></button></li>
+	<br>
+	<li><button class="button button33 play33"><span>I - i </span></button></li>
+	<br>
+	<li><button class="button button34 play34"><span>O -o </span></button></li>
+	<br>
+	<li><button class="button button35 play35"><span>U - u </span></button></li>
+	<br>
+	<li><a href="ingles.html"><button class="button button21"><span></span>  INGLÉS >> </button></a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<aside>
+	
+</aside>
+
+<footer>
+	
+</footer>
+	
 </body>
 </html>
